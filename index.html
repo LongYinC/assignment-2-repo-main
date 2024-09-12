@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <title>Index</title>
+    <link rel="icon" href="../resources/favicon.svg" type="image/svg+xml">
     <style>
-        p,h1,h2,code{
-            width:40%;
+        body{
+            width:60%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -24,11 +25,100 @@
         An external stylesheet contains CSS in a separate file with a .css extension. 
         This is the most common and useful method of bringing CSS to a document. 
         You can link a single CSS file to multiple web pages, styling all of them with the same CSS stylesheet.
-        <p>You reference an external CSS stylesheet from an HTML <code><link></code> element:</p>
-        
+        <p>You reference an external CSS stylesheet from an HTML <code>&lt;link&gt;</code> element:</p>
+        <p>
+            HTML
+            <pre>
+            <code>
+&lt;!doctype html&gt;
+&lt;html lang="en-GB"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"/&gt;
+    &lt;title&gt;My CSS experiment&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;p&gt;This is my first CSS example&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+            </code>
+            </pre>
+        </p>
+        <p>The CSS stylesheet file might look like this:</p>
+        <p>    
+            CSS
+            <pre>
+            <code>
+h1{
+    color: blue;
+    background-color: yellow;
+    border: 1px solid black;
+}
+p{
+    color: red;
+}
+            </code>    
+            </pre>
+        </p>   
+        <p>
+            The href attribute of the &lt;link&gt; element needs to reference a file on your file system. In the example above, 
+            the CSS file is in the same folder as the HTML document, but you could place it somewhere else and adjust the path. Here are three examples:
+        </p> 
+        <p>
+            HTML
+            <pre>
+            <code>
+&lt;!-- Inside a subdirectory called styles inside the current directory --&gt;  
+&lt;link rel="stylesheet" href="styles/style.css" /&gt;
+
+&lt;!-- Inside a subdirectory called general, which is in a subdirectory called 
+styles, inside the current directory --&gt;
+&lt;link rel="stylesheet" href="styles/general/style.css" /&gt;
+
+&lt;!-- Go up one directory level, then inside a subdirectory called styles --&gt;
+&lt;link rel="stylesheet" href="../styles/style.css" /&gt;
+
+            </code>
+            </pre>
+        </p>
 
     </p>
     <h2 class="js-question">How to Use JavaScript in a Webpage</h2>
-    <p class="js-question">To use JS script</p>
+    <p class="js-question">
+        Within a browser, JavaScript doesn't do anything by itself. You run JavaScript from inside your HTML webpages. 
+        To call JavaScript code from within HTML, you need the &lt;script&gt; element. There are two ways to use script, 
+        depending on whether you're linking to an external script or embedding a script right in your webpage.
+    </p>
+    <h3>Linking an external script</h3>
+    <p>Usually, you'll be writing scripts in their own .js files. If you want to execute a .js script from your webpage, 
+        just use &lt;script&gt; with an src attribute pointing to the script file, using its URL:
+    </p>
+    <p>
+        HTML
+        <pre>
+        <code>
+&lt;script src="path/to/my/script.js"&gt;&lt;/script&gt;           
+        </code>    
+        </pre>
+    </p>
+    <h3>Writing JavaScript within HTML</h3>
+    <p>
+        You may also add JavaScript code between &lt;script&gt; tags rather than providing an src attribute.
+    </p>
+    <p>
+        HTML
+        <pre>
+        <code>
+&lt;script&gt;
+    window.addEventListener("load", () => {
+        console.log("This function is executed once the page is fully loaded");
+    });
+&lt;/script&gt;
+        </code>
+        </pre>
+    </p>
+
 </body>
 </html>
